@@ -23,8 +23,15 @@ exports.createUrlPath = (fileAbsolutePath, slug) => {
   const finalSlug = slug || _.kebabCase(fileName);
 
   if (rootPath.indexOf('/') > 0) {
-    return `/${rootPath.slice(0, rootPath.lastIndexOf('/'))}/${finalSlug}`;
+    return `${rootPath.slice(0, rootPath.lastIndexOf('/'))}/${finalSlug}`;
   }
 
   return finalSlug;
+};
+
+exports.getFileName = fileAbsolutePath => {
+  return fileAbsolutePath.slice(
+    fileAbsolutePath.lastIndexOf('/') + 1,
+    fileAbsolutePath.lastIndexOf('.')
+  );
 };

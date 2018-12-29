@@ -1,11 +1,24 @@
 const componentWithMDXScope = require('gatsby-mdx/component-with-mdx-scope');
 const path = require('path');
 const _ = require('lodash');
+const fs = require('fs');
+const gatsbyConfig = require('./gatsby-config');
 
-const { createUrlPath } = require('./utils/url');
+const { createUrlPath, getFileName } = require('./utils/url');
+
+const SUMMARY_EXISTS = gatsbyConfig.siteMetadata.summaryExists;
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
+
+  if (SUMMARY_EXISTS) {
+    // mdx query the file
+    // get html
+    // build file tree
+    // with file tree, get mdx for specific files and create those pages
+    // just always create the pages, don't let them get navigated to?
+  }
+
   return new Promise((resolve, reject) => {
     resolve(
       graphql(
@@ -15,12 +28,13 @@ exports.createPages = ({ graphql, actions }) => {
               edges {
                 node {
                   id
-                  fileAbsolutePath
-                  frontmatter {
+                  fields {
                     title
+                    slug
+                    relativePath
                   }
+                  fileAbsolutePath
                   code {
-                    body
                     scope
                   }
                 }
@@ -37,7 +51,7 @@ exports.createPages = ({ graphql, actions }) => {
         // Create blog posts pages.
         result.data.allMdx.edges.forEach(({ node }) => {
           createPage({
-            path: createUrlPath(node.fileAbsolutePath, node.frontmatter.slug),
+            path: node.fields.relativePath,
             component: componentWithMDXScope(
               path.resolve(`${__dirname}/src/templates/default.js`),
               node.code.scope,
@@ -45,14 +59,7 @@ exports.createPages = ({ graphql, actions }) => {
             ),
             context: {
               id: node.id,
-              title:
-                node.frontmatter.title ||
-                _.startCase(
-                  node.fileAbsolutePath.slice(
-                    node.fileAbsolutePath.lastIndexOf('/') + 1,
-                    node.fileAbsolutePath.lastIndexOf('.')
-                  )
-                ),
+              summaryExists: SUMMARY_EXISTS,
             },
           });
         });
@@ -64,5 +71,36 @@ exports.createPages = ({ graphql, actions }) => {
 exports.onCreateNode = ({ node, actions, getNode }) => {
   const { createNodeField } = actions;
 
-  console.log(node.internal.type);
+  if (node.internal.type === 'Mdx') {
+    const parent = getNode(node.parent);
+
+    const filename = getFileName(node.fileAbsolutePath);
+    const slug = node.frontmatter.slug || _.kebabCase(filename);
+    const relativePath = createUrlPath(node.fileAbsolutePath, slug);
+    const relativeDirectory = parent.relativeDirectory;
+
+    createNodeField({
+      name: 'title',
+      node,
+      value: node.frontmatter.title || _.startCase(filename),
+    });
+
+    createNodeField({
+      name: 'slug',
+      node,
+      value: slug,
+    });
+
+    createNodeField({
+      name: 'relativePath',
+      node,
+      value: relativePath,
+    });
+
+    createNodeField({
+      name: 'relativeDirectory',
+      node,
+      value: relativeDirectory,
+    });
+  }
 };

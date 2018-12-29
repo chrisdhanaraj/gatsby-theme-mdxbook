@@ -1,26 +1,35 @@
-import React, { Component } from 'react'
-import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
-import MDXRenderer from 'gatsby-mdx/mdx-renderer'
+import React, { Component, Fragment } from 'react';
+import Helmet from 'react-helmet';
+import { graphql } from 'gatsby';
+import MDXRenderer from 'gatsby-mdx/mdx-renderer';
+import Sidebar from '../components/Sidebar';
+import Header from '../components/Header';
 
 export default class DefaultTemplate extends Component {
   render() {
-    console.log(this.props.data)
     const {
+      location,
       data: {
         mdx: {
           code: { body },
         },
       },
-    } = this.props
+    } = this.props;
 
     return (
-      <div>
-        <h1>Default Template</h1>
-
-        <MDXRenderer>{body}</MDXRenderer>
-      </div>
-    )
+      <Fragment>
+        <Helmet>
+          <title>Hi</title>
+        </Helmet>
+        <Header />
+        <main>
+          <Sidebar location={location} />
+          <div className="content">
+            <MDXRenderer>{body}</MDXRenderer>
+          </div>
+        </main>
+      </Fragment>
+    );
   }
 }
 
@@ -32,4 +41,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
