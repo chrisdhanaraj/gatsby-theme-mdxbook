@@ -1,8 +1,3 @@
-// this needs to end up creating a nested structure
-// docs/READNME --> '/'
-// docs/whatever.md --> '/whatever'
-// docs/something/else.md --> '/something/else';
-
 const _ = require('lodash');
 
 exports.createUrlPath = (fileAbsolutePath, slug) => {

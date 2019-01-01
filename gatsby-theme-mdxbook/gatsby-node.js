@@ -2,34 +2,29 @@ const componentWithMDXScope = require('gatsby-mdx/component-with-mdx-scope');
 const path = require('path');
 const _ = require('lodash');
 const fs = require('fs');
-const gatsbyConfig = require('./gatsby-config');
 
 const { createUrlPath, getFileName } = require('./utils/url');
+const { convertHtmlToTree } = require('./utils/dirTree');
+const { resolveNavTree } = require('./utils/resolveNavTree');
 
-const SUMMARY_EXISTS = gatsbyConfig.siteMetadata.summaryExists;
+const SUMMARY_EXISTS = fs.existsSync(`${process.cwd()}/docs/SUMMARY.md`);
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-
-  if (SUMMARY_EXISTS) {
-    // mdx query the file
-    // get html
-    // build file tree
-    // with file tree, get mdx for specific files and create those pages
-    // just always create the pages, don't let them get navigated to?
-  }
 
   return new Promise((resolve, reject) => {
     resolve(
       graphql(
         `
           {
+            mdx(fields: { relativePath: { eq: "summary" } }) {
+              html
+            }
             allMdx {
               edges {
                 node {
                   id
                   fields {
-                    title
                     slug
                     relativePath
                   }
@@ -48,21 +43,54 @@ exports.createPages = ({ graphql, actions }) => {
           reject(result.errors);
         }
 
-        // Create blog posts pages.
-        result.data.allMdx.edges.forEach(({ node }) => {
-          createPage({
-            path: node.fields.relativePath,
-            component: componentWithMDXScope(
-              path.resolve(`${__dirname}/src/templates/default.js`),
-              node.code.scope,
-              process.cwd()
-            ),
-            context: {
-              id: node.id,
-              summaryExists: SUMMARY_EXISTS,
-            },
+        if (SUMMARY_EXISTS) {
+          const html = result.data.mdx.html;
+          const { allPages, sidebarTree } = convertHtmlToTree(html);
+          const navTree = resolveNavTree(sidebarTree, result.data.allMdx.edges);
+
+          const absolutePaths = allPages.map(
+            page => `${process.cwd()}/docs/${page}`
+          );
+
+          result.data.allMdx.edges
+            .filter(({ node }) => {
+              return (
+                node.fields.relativePath === '/' ||
+                absolutePaths.includes(node.fileAbsolutePath)
+              );
+            })
+            .forEach(({ node }) => {
+              createPage({
+                path: node.fields.relativePath,
+                component: componentWithMDXScope(
+                  path.resolve(`${__dirname}/src/templates/default.js`),
+                  node.code.scope,
+                  process.cwd()
+                ),
+                context: {
+                  id: node.id,
+                  rootPath: process.cwd(),
+                },
+              });
+            });
+        } else {
+          // Create blog posts pages.
+          result.data.allMdx.edges.forEach(({ node }) => {
+            createPage({
+              path: node.fields.relativePath,
+              component: componentWithMDXScope(
+                path.resolve(`${__dirname}/src/templates/default.js`),
+                node.code.scope,
+                process.cwd()
+              ),
+              context: {
+                id: node.id,
+                summaryExists: SUMMARY_EXISTS,
+                sidebarTree: null,
+              },
+            });
           });
-        });
+        }
       })
     );
   });

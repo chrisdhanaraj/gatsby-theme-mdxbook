@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, graphql } from 'gatsby';
+import { Link } from 'gatsby';
 
 const constructDirTree = nodeArr => {
   const flattened = nodeArr
@@ -29,42 +29,28 @@ const constructDirTree = nodeArr => {
 // ELSE
 //  Query all mdx files and loop through the directory tree there
 
-const Sidebar = ({ location }) => {
-  return (
-    <StaticQuery
-      query={graphql`
-        query {
-          site {
-            siteMetadata {
-              summaryExists
-            }
-          }
-          allMdx {
-            edges {
-              node {
-                fields {
-                  slug
-                  title
-                  relativePath
-                  relativeDirectory
-                }
-              }
-            }
-          }
-        }
-      `}
-      render={({ site, allMdx }) => {
-        const {
-          siteMetadata: { summaryExists },
-        } = site;
-        const dirTree = constructDirTree(allMdx.edges);
+const Sidebar = ({ location, summaryExists, navConfig }) => {
+  const content = navConfig.reduce((content, item) => {
+    if (item.children && item.header) {
+      content.push(
+        <li>
+          <strong>{item.header}</strong>
+        </li>
+      );
 
-        console.log(summaryExists);
+      item.children.forEach(childItem => {
+        content.push(
+          <Link to={childItem.relativePath}>{childItem.label}</Link>
+        );
+      });
+    } else {
+      content.push(<Link to={item.relativePath}>{item.label}</Link>);
+    }
 
-        return <p>Hi</p>;
-      }}
-    />
-  );
+    return content;
+  }, []);
+
+  return <div className="sidebar">{content}</div>;
 };
 
 export default Sidebar;

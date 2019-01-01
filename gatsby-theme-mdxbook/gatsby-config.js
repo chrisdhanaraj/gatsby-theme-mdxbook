@@ -3,9 +3,8 @@ const fs = require('fs');
 module.exports = {
   siteMetadata: {
     title: `mdxbook`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
+    description: `Get started on writing docs, quickly.`,
     author: `@chrisdhanaraj`,
-    summaryExists: fs.existsSync(`${process.cwd()}/docs/SUMMARY.md`),
   },
   plugins: [
     {

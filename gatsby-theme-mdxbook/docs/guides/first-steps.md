@@ -1,3 +1,3 @@
 # Hello
 
-Hi there
+Hi there, my name is Chris.

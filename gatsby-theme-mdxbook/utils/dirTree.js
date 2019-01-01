@@ -2,8 +2,16 @@ const HTML = require('html-parse-stringify');
 
 exports.convertHtmlToTree = htmlString => {
   const tree = HTML.parse(htmlString)[0].children;
-  const sidebarTree = [];
-  let currentIndex = null;
+
+  const allPages = [];
+  const sidebarTree = [
+    {
+      relativePath: '/',
+      label: 'Home',
+    },
+  ];
+
+  let currentIndex = 0;
 
   tree.forEach(node => {
     if (node.name === 'h2') {
@@ -12,7 +20,7 @@ exports.convertHtmlToTree = htmlString => {
         children: [],
       });
 
-      currentIndex = currentIndex === null ? 0 : currentIndex + 1;
+      currentIndex = currentIndex + 1;
     }
 
     if (node.name === 'ul') {
@@ -24,10 +32,14 @@ exports.convertHtmlToTree = htmlString => {
           label: link.children[0].content,
         };
 
+        allPages.push(link.attrs.href);
         sidebarTree[currentIndex].children.push(el);
       });
     }
   });
 
-  return sidebarTree;
+  return {
+    sidebarTree,
+    allPages,
+  };
 };
