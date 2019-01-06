@@ -5,7 +5,6 @@ const fs = require('fs');
 
 const { createUrlPath, getFileName } = require('./utils/url');
 const { convertHtmlToTree } = require('./utils/dirTree');
-const { resolveNavTree } = require('./utils/resolveNavTree');
 
 const SUMMARY_EXISTS = fs.existsSync(`${process.cwd()}/docs/SUMMARY.md`);
 
@@ -42,11 +41,9 @@ exports.createPages = async ({ graphql, actions }) => {
           console.log(result.errors); // eslint-disable-line no-console
           reject(result.errors);
         }
-
         if (SUMMARY_EXISTS) {
           const html = result.data.mdx.html;
-          const { allPages, sidebarTree } = convertHtmlToTree(html);
-          const navTree = resolveNavTree(sidebarTree, result.data.allMdx.edges);
+          const { allPages } = convertHtmlToTree(html);
 
           const absolutePaths = allPages.map(
             page => `${process.cwd()}/docs/${page}`
@@ -63,7 +60,7 @@ exports.createPages = async ({ graphql, actions }) => {
               createPage({
                 path: node.fields.relativePath,
                 component: componentWithMDXScope(
-                  path.resolve(`${__dirname}/src/templates/default.js`),
+                  path.resolve(`${__dirname}/src/templates/Layout/Layout.js`),
                   node.code.scope,
                   process.cwd()
                 ),
@@ -79,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
             createPage({
               path: node.fields.relativePath,
               component: componentWithMDXScope(
-                path.resolve(`${__dirname}/src/templates/default.js`),
+                path.resolve(`${__dirname}/src/templates/Layout/Layout.js`),
                 node.code.scope,
                 process.cwd()
               ),

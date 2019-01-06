@@ -1,0 +1,27 @@
+.document {
+  max-width: 785px;
+  padding: 0 32px;
+}
+
+.document-header-container {
+  border-bottom: 1px solid var(--border-grey);
+  padding-top: 16px;
+  padding-bottom: 32px;
+  margin-bottom: 32px;
+}
+
+.document-header-content {
+  border-left: 2px solid rgb(188, 106, 157);
+  padding-left: 32px;
+}
+
+.document-header {
+  font-size: 32px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.last-modified {
+  font-size: 12px;
+  color: #9daab6;
+}

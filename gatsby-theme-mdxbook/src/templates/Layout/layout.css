@@ -1,0 +1,26 @@
+:root {
+  --background-grey: #f5f7f9;
+  --border-grey: #e6ecf1;
+}
+
+.container {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  min-height: 100vh;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+}
+
+.sidebar {
+  flex: 1;
+  height: 100%;
+  min-width: 298px;
+}
+
+.content {
+  flex: 4;
+  padding: 16px 32px;
+}

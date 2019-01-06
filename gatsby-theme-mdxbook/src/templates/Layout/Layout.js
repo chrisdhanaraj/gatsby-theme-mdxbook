@@ -1,11 +1,13 @@
 import React, { Component, Fragment } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
-import MDXRenderer from 'gatsby-mdx/mdx-renderer';
-import Sidebar from '../components/Sidebar';
-import Header from '../components/Header';
-import { convertHtmlToTree } from '../../utils/dirTree';
-import { resolveNavTree } from '../../utils/resolveNavTree';
+import Sidebar from '../../components/Sidebar';
+import Header from '../../components/Header';
+import MainContent from '../../components/MainContent';
+import { convertHtmlToTree } from '../../../utils/dirTree';
+import { resolveNavTree } from '../../../utils/resolveNavTree';
+import './normalize.css';
+import './layout.css';
 
 export default class DefaultTemplate extends Component {
   render() {
@@ -14,8 +16,8 @@ export default class DefaultTemplate extends Component {
       location,
       data: {
         pageDetails: {
+          parent: { modifiedTime },
           fields: { title },
-          code: { body },
         },
         summaryPage,
         allMdx,
@@ -24,7 +26,6 @@ export default class DefaultTemplate extends Component {
     } = this.props;
 
     const summaryExists = summaryPage !== null;
-    console.log(this.props.data);
 
     // if (summaryExists) {
     const { sidebarTree } = convertHtmlToTree(summaryPage.html);
@@ -33,22 +34,24 @@ export default class DefaultTemplate extends Component {
     // }
 
     return (
-      <Fragment>
+      <div className="container">
         <Helmet>
           <title>{title}</title>
         </Helmet>
         <Header />
-        <main>
+        <main className="main">
           <Sidebar
             location={location}
             summaryExists={summaryExists}
             navConfig={navConfig}
           />
-          <div className="content">
-            <MDXRenderer>{body}</MDXRenderer>
-          </div>
+          <MainContent
+            title={title}
+            modifiedTime={modifiedTime}
+            pageDetails={this.props.data.pageDetails}
+          />
         </main>
-      </Fragment>
+      </div>
     );
   }
 }
@@ -56,10 +59,20 @@ export default class DefaultTemplate extends Component {
 export const pageQuery = graphql`
   query($id: String!) {
     pageDetails: mdx(id: { eq: $id }) {
+      parent {
+        ... on File {
+          modifiedTime
+        }
+      }
       fields {
         title
       }
+      headings {
+        value
+        depth
+      }
       code {
+        scope
         body
       }
     }

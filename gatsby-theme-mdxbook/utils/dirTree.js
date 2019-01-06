@@ -16,7 +16,7 @@ exports.convertHtmlToTree = htmlString => {
   tree.forEach(node => {
     if (node.name === 'h2') {
       sidebarTree.push({
-        header: node.children[0].content,
+        header: node.children[1].content,
         children: [],
       });
 
