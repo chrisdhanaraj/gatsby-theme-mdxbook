@@ -4,8 +4,10 @@
   "version": "0.1.0",
   "author": "Chris Dhanaraj <adhanaraj@gmail.com",
   "dependencies": {
+    "@andrew-codes/gatsby-plugin-elasticlunr-search": "^1.0.4",
     "@mdx-js/mdx": "0.16.x",
     "@mdx-js/tag": "0.16.x",
+    "classnames": "^2.2.6",
     "date-fns": "^1.30.1",
     "gatsby": "^2.0.53",
     "gatsby-image": "^2.0.20",
@@ -18,6 +20,7 @@
     "gatsby-source-filesystem": "^2.0.8",
     "gatsby-transformer-sharp": "^2.1.8",
     "html-parse-stringify": "^1.0.3",
+    "js-worker-search": "^1.4.0",
     "prop-types": "^15.6.2",
     "react": "^16.7.0-alpha.2",
     "react-dom": "^16.7.0-alpha.2",

@@ -12,7 +12,7 @@ const MainContent = ({ title, modifiedTime, pageDetails, allMdx }) => {
         modifiedTime={modifiedTime}
       />
 
-      <DocumentNavigation allMdx={allMdx} />
+      <DocumentNavigation headings={pageDetails.headings} />
     </div>
   );
 };

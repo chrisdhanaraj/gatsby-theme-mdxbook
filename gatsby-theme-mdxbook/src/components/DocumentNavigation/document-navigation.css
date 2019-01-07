@@ -1,0 +1,26 @@
+.document-navigation {
+  position: sticky;
+  top: 32px;
+  width: 222px;
+  padding: 0 32px;
+  border-left: 1px solid var(--border-grey);
+}
+
+.document-navigation__heading {
+  font-size: 10px;
+}
+
+.document-navigation-list {
+  list-style: none;
+}
+
+.document-navigation-list__item {
+  margin: 0;
+  font-size: 14px;
+  padding-bottom: 4px;
+  word-wrap: break-word;
+}
+
+.document-navigation-list__item--depth-1 {
+  padding-left: 16px;
+}

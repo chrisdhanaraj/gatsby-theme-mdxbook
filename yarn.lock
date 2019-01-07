@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@andrew-codes/gatsby-plugin-elasticlunr-search@^1.0.4":
+  version "1.0.4"
+  resolved "https://registry.yarnpkg.com/@andrew-codes/gatsby-plugin-elasticlunr-search/-/gatsby-plugin-elasticlunr-search-1.0.4.tgz#2b2ace31903177961198b1e218f882667a31f228"
+  integrity sha512-P6RR3oAl1BVNhEZBXst/KEXLi2T2x2D6J6UBwmsgZNf0lLtHL/7N68KeLN+J2VKcAmvDpJ83o2KEj3ft/jND8g==
+  dependencies:
+    elasticlunr "^0.9.5"
+    graphql "^0.11.7"
+
 "@babel/code-frame@7.0.0-beta.44":
   version "7.0.0-beta.44"
   resolved "https://registry.yarnpkg.com/@babel/code-frame/-/code-frame-7.0.0-beta.44.tgz#2a02643368de80916162be70865c97774f3adbd9"
@@ -2811,6 +2819,11 @@ class-utils@^0.3.5:
     isobject "^3.0.0"
     static-extend "^0.1.1"
 
+classnames@^2.2.6:
+  version "2.2.6"
+  resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
+  integrity sha512-JR/iSQOSt+LQIWwrwEzJ9uk0xfN3mTVYMwt1Ir5mUcSN6pU+V4zQFFaJsclJbPuAUQH+yfWef6tm7l1quW3C8Q==
+
 cli-boxes@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/cli-boxes/-/cli-boxes-1.0.0.tgz#4fa917c3e59c94a004cd61f8ee509da651687143"
@@ -4037,6 +4050,11 @@ ee-first@1.1.1:
   resolved "https://registry.yarnpkg.com/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
+elasticlunr@^0.9.5:
+  version "0.9.5"
+  resolved "https://registry.yarnpkg.com/elasticlunr/-/elasticlunr-0.9.5.tgz#65541bb309dddd0cf94f2d1c8861b2be651bb0d5"
+  integrity sha1-ZVQbswnd3Qz5Ty0ciGGyvmUbsNU=
+
 electron-to-chromium@^1.3.47, electron-to-chromium@^1.3.92:
   version "1.3.96"
   resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.3.96.tgz#25770ec99b8b07706dedf3a5f43fa50cb54c4f9a"
@@ -5003,6 +5021,11 @@ flat@^4.0.0:
   dependencies:
     is-buffer "~2.0.3"
 
+flow-bin@^0.50.0:
+  version "0.50.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.50.0.tgz#d4cdb2430dee1a3599f0eb6fe551146e3027256a"
+  integrity sha1-1M2yQw3uGjWZ8Otv5VEUbjAnJWo=
+
 flush-write-stream@^1.0.0:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/flush-write-stream/-/flush-write-stream-1.0.3.tgz#c5d586ef38af6097650b49bc41b55fabb19f35bd"
@@ -5801,6 +5824,13 @@ graphql-type-json@^0.2.1:
   version "0.2.1"
   resolved "https://registry.yarnpkg.com/graphql-type-json/-/graphql-type-json-0.2.1.tgz#d2c177e2f1b17d87f81072cd05311c0754baa420"
   integrity sha1-0sF34vGxfYf4EHLNBTEcB1S6pCA=
+
+graphql@^0.11.7:
+  version "0.11.7"
+  resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.11.7.tgz#e5abaa9cb7b7cccb84e9f0836bf4370d268750c6"
+  integrity sha512-x7uDjyz8Jx+QPbpCFCMQ8lltnQa4p4vSYHx6ADe8rVYRTdsyhCJbvSty5DAsLVmU6cGakl+r8HQYolKHxk/tiw==
+  dependencies:
+    iterall "1.1.3"
 
 graphql@^0.13.0, graphql@^0.13.2:
   version "0.13.2"
@@ -6949,6 +6979,11 @@ isurl@^1.0.0-alpha5:
     has-to-string-tag-x "^1.2.0"
     is-object "^1.0.1"
 
+iterall@1.1.3:
+  version "1.1.3"
+  resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.1.3.tgz#1cbbff96204056dde6656e2ed2e2226d0e6d72c9"
+  integrity sha512-Cu/kb+4HiNSejAPhSaN1VukdNTTi/r4/e+yykqjlG/IW+1gZH5b4+Bq3whDX4tvbYugta3r8KTMUiqT3fIGxuQ==
+
 iterall@^1.1.3, iterall@^1.2.1:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/iterall/-/iterall-1.2.2.tgz#92d70deb8028e0c39ff3164fdbf4d8b088130cd7"
@@ -7020,6 +7055,14 @@ js-tokens@^3.0.0, js-tokens@^3.0.2:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-4.0.0.tgz#19203fb59991df98e3a287050d4647cdeaf32499"
   integrity sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==
+
+js-worker-search@^1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/js-worker-search/-/js-worker-search-1.4.0.tgz#504f06cca63591be743a5e9a52e3544cb09ac7d4"
+  integrity sha512-xhRydfK5+/wBifybewZQQSG/2YWp/jghKiUJxyrMcoRsy3bhoeRY6cJH6FajqQAlaDLqnTYXkTK8TH15qNTsuw==
+  dependencies:
+    flow-bin "^0.50.0"
+    uuid "^2.0.1"
 
 js-yaml@^3.10.0, js-yaml@^3.11.0, js-yaml@^3.12.0, js-yaml@^3.5.2, js-yaml@^3.9.0, js-yaml@^3.9.1:
   version "3.12.0"
@@ -11889,6 +11932,11 @@ utils-merge@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/utils-merge/-/utils-merge-1.0.1.tgz#9f95710f50a267947b2ccc124741c1028427e713"
   integrity sha1-n5VxD1CiZ5R7LMwSR0HBAoQn5xM=
+
+uuid@^2.0.1:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/uuid/-/uuid-2.0.3.tgz#67e2e863797215530dff318e5bf9dcebfd47b21a"
+  integrity sha1-Z+LoY3lyFVMN/zGOW/nc6/1Hsho=
 
 uuid@^3.0.0, uuid@^3.0.1, uuid@^3.1.0, uuid@^3.3.2:
   version "3.3.2"

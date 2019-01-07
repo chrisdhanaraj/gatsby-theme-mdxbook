@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import Helmet from 'react-helmet';
 import { graphql } from 'gatsby';
 import Sidebar from '../../components/Sidebar';

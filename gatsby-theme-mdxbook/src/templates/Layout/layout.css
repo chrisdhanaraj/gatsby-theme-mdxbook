@@ -13,14 +13,3 @@
   display: grid;
   grid-template-columns: max-content 1fr;
 }
-
-.sidebar {
-  flex: 1;
-  height: 100%;
-  min-width: 298px;
-}
-
-.content {
-  flex: 4;
-  padding: 16px 32px;
-}
