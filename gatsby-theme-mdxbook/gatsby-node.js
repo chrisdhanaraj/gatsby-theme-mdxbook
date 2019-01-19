@@ -1,4 +1,3 @@
-const componentWithMDXScope = require('gatsby-mdx/component-with-mdx-scope');
 const path = require('path');
 const _ = require('lodash');
 const fs = require('fs');
@@ -59,10 +58,8 @@ exports.createPages = async ({ graphql, actions }) => {
             .forEach(({ node }) => {
               createPage({
                 path: node.fields.relativePath,
-                component: componentWithMDXScope(
-                  path.resolve(`${__dirname}/src/templates/Layout/Layout.js`),
-                  node.code.scope,
-                  process.cwd()
+                component: path.resolve(
+                  `${__dirname}/src/templates/Layout/Layout.js`
                 ),
                 context: {
                   id: node.id,
@@ -75,10 +72,8 @@ exports.createPages = async ({ graphql, actions }) => {
           result.data.allMdx.edges.forEach(({ node }) => {
             createPage({
               path: node.fields.relativePath,
-              component: componentWithMDXScope(
-                path.resolve(`${__dirname}/src/templates/Layout/Layout.js`),
-                node.code.scope,
-                process.cwd()
+              component: path.resolve(
+                `${__dirname}/src/templates/Layout/Layout.js`
               ),
               context: {
                 id: node.id,
