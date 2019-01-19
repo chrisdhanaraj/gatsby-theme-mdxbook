@@ -26,9 +26,9 @@ const DocumentNavigation = ({ headings }) => {
 
             const className = classnames('document-navigation-list__item', {
               'document-navigation-list__item--depth-0':
-                node.depth % lowestDepth === 0,
+                node.depth === lowestDepth,
               'document-navigation-list__item--depth-1':
-                node.depth % lowestDepth !== 0,
+                node.depth !== lowestDepth,
             });
             return (
               <li className={className}>
