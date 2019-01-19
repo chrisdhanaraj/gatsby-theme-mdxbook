@@ -2,28 +2,6 @@ import React from 'react';
 import { Link } from 'gatsby';
 import './sidebar.css';
 
-const constructDirTree = nodeArr => {
-  const flattened = nodeArr
-    .map(node => {
-      return node.node.fields;
-    })
-    .reduce((dirTree, node) => {
-      const { relativeDirectory } = node;
-
-      if (relativeDirectory === '') {
-        dirTree['root'] = dirTree['root'] || [];
-        dirTree['root'].push(node);
-      } else {
-        dirTree[relativeDirectory] = dirTree[relativeDirectory] || [];
-        dirTree[relativeDirectory].push(node);
-      }
-
-      return dirTree;
-    }, {});
-
-  return flattened;
-};
-
 // -------------------------------
 // IF the SUMMARY.md file exists
 //  THEN query that file and use the shared util to get the folder structure

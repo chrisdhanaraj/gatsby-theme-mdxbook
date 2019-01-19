@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-mdxbook",
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Build a docs site quickly",
   "version": "0.1.0",
   "author": "Chris Dhanaraj <adhanaraj@gmail.com",
   "dependencies": {
