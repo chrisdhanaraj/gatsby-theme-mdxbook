@@ -1,23 +1,22 @@
 {
   "name": "gatsby-theme-mdxbook",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "main": "index.js",
   "author": "@chrisdhanaraj",
   "license": "MIT",
   "dependencies": {
-    "@mdx-js/mdx": "^1.0.10",
-    "@mdx-js/react": "^1.0.6",
     "classnames": "^2.2.6",
     "date-fns": "^1.30.1",
-    "gatsby": "^2.3.24",
-    "gatsby-mdx": "^0.6.3",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-source-filesystem": "^2.0.29",
     "prop-types": "^15.7.2",
     "react-helmet": "^5.2.1"
   },
   "peerDependencies": {
+    "@mdx-js/mdx": "^1.0.10",
+    "@mdx-js/react": "^1.0.6",
     "gatsby": "^2.0.75",
+    "gatsby-mdx": "^0.6.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   }

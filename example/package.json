@@ -9,9 +9,11 @@
     "build": "gatsby build"
   },
   "dependencies": {
-    "gatsby": "^2.1.32",
-    "gatsby-theme-mdxbook": "*",
-    "react": "^16.8.4",
-    "react-dom": "^16.8.4"
+    "@mdx-js/mdx": "^1.0.10",
+    "@mdx-js/react": "^1.0.6",
+    "gatsby": "^2.0.75",
+    "gatsby-mdx": "^0.6.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   }
 }

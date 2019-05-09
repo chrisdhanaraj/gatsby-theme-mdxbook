@@ -8,5 +8,14 @@
   "workspaces": [
     "gatsby-theme-mdxbook",
     "example"
-  ]
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@mdx-js/mdx": "^1.0.10",
+    "@mdx-js/react": "^1.0.6",
+    "gatsby": "^2.0.75",
+    "gatsby-mdx": "^0.6.3",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  }
 }
