@@ -1,0 +1,22 @@
+{
+  "tableOfContents": [
+    {
+      "header": "Search Components",
+      "links": [
+        {
+          "label": "Search Bar",
+          "href": "/search-components/search-bar"
+        }
+      ]
+    },
+    {
+      "header": "UI Components",
+      "links": [
+        {
+          "label": "Button",
+          "href": "/ui-components/button"
+        }
+      ]
+    }
+  ]
+}
