@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-theme-workspaces",
+  "name": "gatsby-starter-mdxbook",
   "version": "1.0.0",
   "private": true,
   "main": "index.js",
-  "author": "christopherbiscardi <chris@christopherbiscardi.com> (@chrisbiscardi)",
+  "author": "@chrisdhanaraj",
   "license": "MIT",
   "workspaces": [
     "gatsby-theme-mdxbook",
