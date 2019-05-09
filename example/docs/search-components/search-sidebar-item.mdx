@@ -1,0 +1,50 @@
+---
+title: Search Sidebar Item
+slug: search-sidebar-item
+---
+
+# Purpose
+
+The Search Sidebar Item is another "container component", this time housing the content for each Sidebar Item. The actual content usually follows a pattern of some kind, and has been abstracted for dates in DateTypes. However, it's likely your enumerated and boolean style facets will look very similar as well (and may get componentized in the future).
+
+The primary user action that the component provides is the ability to see what filters have been selected for it's specific content (again, a dumb component so the component assumes the developer is tracking this in state somewhere), and trigger removal actions on them.
+
+So far, there are two types of content for the SearchSidebarItem - single (where all items passed in belong to the same filter) and multiple, where items belong to different filters.
+
+# User Actions
+
+- Remove filter
+- Remove all filters
+
+# Playground
+
+# Props Table
+
+# Events
+
+**For both types**
+
+```js
+{
+  type: 'REMOVE_ALL';
+}
+```
+
+**For single**
+
+```js
+{
+  type: 'REMOVE'
+  ...item
+}
+```
+
+**For multiple**
+
+```js
+{
+  type: 'REMOVE',
+  field_key: String
+  ...item
+}
+```

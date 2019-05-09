@@ -1,0 +1,91 @@
+---
+title: Saved Lists
+slug: saved-lists
+---
+
+# Purpose
+
+The Saved Lists component is designed to allow users to quickly return to a previous search. It has no opinion on where lists are saved to, though the assumption is that apps will save any user preference to user profiles in Starship, though anywhere else is fine.
+
+Users will also be able to choose a default search, with the intended UX of the app loading that saved list on load.
+
+# User Actions
+
+- Save a list
+- Select a list
+- Delete a list
+- Make a list their default
+
+# Playground
+
+# Props Table
+
+| Name | Type | Description |
+
+savedAttributes
+Array
+A list of the currently saved lists
+
+strings
+Object
+A map of the strings used in the component with English defaults. Pass in an object with overrides to localize
+
+onEvent
+Function
+A callback that dispatches any user interactions with the Saved Lists.
+
+# Events
+
+```js
+{
+  type: 'SAVE',
+  payload: {
+    label: String | inputValue,
+    location: String | window.location.search
+  }
+}
+```
+
+```js
+{
+  type: 'SELECT',
+  payload: {
+    location: String,
+    label: String,
+    default: Boolean
+  }
+}
+```
+
+```js
+{
+  type: 'REMOVE',
+  payload: {
+    location: String,
+    label: String,
+    default: Boolean
+  }
+}
+```
+
+```js
+{
+  type: 'REMOVE_DEFAULT',
+  payload: {
+    location: String,
+    label: String,
+    default: Boolean
+  }
+}
+```
+
+```js
+{
+  type: 'MAKE_DEFAULT',
+  payload: {
+    location: String,
+    label: String,
+    default: Boolean
+  }
+}
+```

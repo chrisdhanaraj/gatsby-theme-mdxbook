@@ -1,0 +1,34 @@
+---
+title: Search Sidebar
+slug: search-sidebar
+---
+
+# Purpose
+
+The Search Sidebar is primarily just a container for Search Sidebar Items. However, it does have a configurable width, an optional settings button, and can open and close. That's it.
+
+# User Actions
+
+- Open the Sidebar
+- Collapse the Sidebar
+- Open the settings menu
+
+# Playground
+
+# Props Table
+
+width
+String
+A CSS value for width (include the units)
+
+settingsNode
+Node
+The node to render when a user clicks the settings icon (assuming settings are turned on)
+
+options
+Object
+An object with two properties, defaultCollapsed and configurable. defaultCollapsed sets initial collapsed state (default to false), and configurable turns on the setings gear.
+
+label
+String
+The header text for the Sidebar. Defaults to Filters.

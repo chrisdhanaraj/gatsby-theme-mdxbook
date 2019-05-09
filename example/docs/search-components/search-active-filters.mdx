@@ -1,0 +1,45 @@
+---
+title: Search Active Filters
+slug: search-active-filters
+---
+
+# Purpose
+
+This component is an alternate way to expose the current active filters (with the other being inline in the Search Bar). The component accepts an array of items, and renders them in a list of pills. Users can interact with the pills to remove individual filters or remove them all.
+
+# User Actions
+
+- Remove a filter
+- Remove all filters
+
+# Playground
+
+# Props Table
+
+itemToString
+Function
+The text to render inside the pill, given an item
+
+chipHoverColor
+String
+Hover color for the pills, accepts a Hawkins string variable
+
+chipActiveColor
+String
+Active state color for the pill (on click), accepts a Hawkins string variable
+
+selectedItems
+Array
+A list of the selected items
+
+strings
+Object
+A map of the strings used in the component with English defaults. Pass in an object with overrides to localize
+
+onRemoveAllitems
+Function
+Callback function triggered when a user selects clear all
+
+onRemoveSelectedItem
+Function
+Callback function (with parameter `item`) triggered when a user removes a single item.

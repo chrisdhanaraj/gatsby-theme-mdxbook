@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "gatsby": "^2.1.32",
-    "gatsby-theme-mdxbook": "^1.0.0",
+    "gatsby-theme-mdxbook": "*",
     "react": "^16.8.4",
     "react-dom": "^16.8.4"
   }

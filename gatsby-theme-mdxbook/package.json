@@ -1,6 +1,6 @@
 {
   "name": "gatsby-theme-mdxbook",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "main": "index.js",
   "author": "@chrisdhanaraj",
   "license": "MIT",
@@ -13,8 +13,6 @@
     "gatsby-mdx": "^0.6.3",
     "gatsby-plugin-react-helmet": "^3.0.12",
     "gatsby-source-filesystem": "^2.0.29",
-    "html-parse-stringify": "^1.0.3",
-    "js-yaml": "^3.13.1",
     "prop-types": "^15.7.2",
     "react-helmet": "^5.2.1"
   },

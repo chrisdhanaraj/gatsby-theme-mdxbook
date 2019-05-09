@@ -1,0 +1,72 @@
+---
+title: Search Bar
+slug: search-bar
+---
+
+# Purpose
+
+The Search Bar component wraps up the major interactions between a search input and it's corresponding suggestions. Like the other components, it itself does not ping API's, but assumes that the user will do it themselves and pass in any updates to the component.
+
+The component can optionally also render selected items in pills before the search input text (as opposed to using the Search Active Filters to render those).
+
+The component has a default render for any suggestions passed in, but allows you to override with a suggestionConfig property. The property assumes your API returns suggestions with a `type`, as per attached doc.
+
+# Noted/Needed Improvements
+
+- Localisation in the component relies on an object `messages` on the `window` (as per old CPE defaults). This should be updated to accept a localization function.
+
+- The eventing system requires users to pass in a handler for multiple types of inputs. The component should standardize around a single eventing API for end users.
+
+# User Actions
+
+- Input text
+- Select a suggestion
+- Press enter to select anything
+- Remove an active filter
+
+# Playground
+
+# Props Table
+
+icon
+Node
+By default, the magnifier icon before the input field. Configurable by passing in a different Node
+
+className
+String
+Passes to the root container, in case of a need to override styles specifically.
+
+selectedItems
+Array
+A list of the selected items
+
+searchInputClassName
+String
+The class passed directly to the text input
+
+suggestions
+null || Array
+A list of suggestions to render. Assumes will be null if nothing has been loaded yet, else an array.
+
+suggestionsLoading
+Boolean
+Are the suggestions loading
+
+onSelect
+Function
+Callback function when a user selects a suggestion.
+
+onRemoveSelectedItem
+Callback function (with parameter `item`) triggered when a user removes a single item.
+
+placeholder
+String
+Placeholder text for the search input
+
+translate
+Object
+A map of the strings used in the component with English defaults. Pass in an object with overrides to localize
+
+suggestionConfig
+Object
+A map of `types` with a callback function as the value. Used to customize the suggestion list

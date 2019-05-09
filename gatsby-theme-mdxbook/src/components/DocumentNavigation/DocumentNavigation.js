@@ -1,7 +1,7 @@
-import React from 'react';
-import { kebabCase } from 'lodash';
-import classnames from 'classnames';
-import './document-navigation.css';
+import React from "react";
+import { kebabCase } from "lodash";
+import classnames from "classnames";
+import "./document-navigation.css";
 
 const DocumentNavigation = ({ headings }) => {
   const lowestDepth = headings.reduce((lowestDepth, node) => {
@@ -22,17 +22,17 @@ const DocumentNavigation = ({ headings }) => {
         <strong className="document-navigation__heading">CONTENTS</strong>
         <ul className="document-navigation-list">
           {headingTree.map(node => {
-            // const alphanumericValue = node.value.replace(/[^a-zA-Z\d\s]/g, '');
+            const alphanumericValue = node.value.replace(/[^a-zA-Z\d\s]/g, "");
 
-            const className = classnames('document-navigation-list__item', {
-              'document-navigation-list__item--depth-0':
+            const className = classnames("document-navigation-list__item", {
+              "document-navigation-list__item--depth-0":
                 node.depth === lowestDepth,
-              'document-navigation-list__item--depth-1':
-                node.depth !== lowestDepth,
+              "document-navigation-list__item--depth-1":
+                node.depth !== lowestDepth
             });
             return (
               <li className={className}>
-                <a href={`#${kebabCase('hi')}`}>
+                <a href={`#${kebabCase(alphanumericValue)}`}>
                   <span>{node.value}</span>
                 </a>
               </li>

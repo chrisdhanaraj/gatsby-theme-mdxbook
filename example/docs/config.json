@@ -6,6 +6,26 @@
         {
           "label": "Search Bar",
           "href": "/search-components/search-bar"
+        },
+        {
+          "label": "Search Bar Container",
+          "href": "/search-components/search-bar-container"
+        },
+        {
+          "label": "Search Sidebar",
+          "href": "/search-components/search-sidebar"
+        },
+        {
+          "label": "Search Sidebar Item",
+          "href": "/search-components/search-sidebar-item"
+        },
+        {
+          "label": "Search Active Filters",
+          "href": "/search-components/search-active-filters"
+        },
+        {
+          "label": "Saved Lists",
+          "href": "/search-components/saved-lists"
         }
       ]
     },
