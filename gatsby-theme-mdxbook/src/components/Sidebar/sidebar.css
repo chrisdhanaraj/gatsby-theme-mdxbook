@@ -34,7 +34,7 @@
   background-color: initial;
 }
 
-.sidebar-nav__item--active {
+.sidebar-nav__item[aria-current="page"] {
   background-color: #fff;
   border-color: #e6ecf1;
   border-right-color: transparent;

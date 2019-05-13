@@ -11,13 +11,14 @@
 }
 
 .document-navigation-list {
+  display: grid;
+  row-gap: 8px;
   list-style: none;
 }
 
 .document-navigation-list__item {
   margin: 0;
   font-size: 14px;
-  padding-bottom: 4px;
   word-wrap: break-word;
 }
 

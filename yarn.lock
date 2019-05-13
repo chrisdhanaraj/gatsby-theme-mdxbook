@@ -4692,6 +4692,14 @@ gatsby-mdx@^0.6.3:
     unist-util-remove "^1.0.1"
     unist-util-visit "^1.4.0"
 
+gatsby-plugin-compile-es6-packages@^1.1.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-compile-es6-packages/-/gatsby-plugin-compile-es6-packages-1.1.0.tgz#5045c3bbf408c6d639b317ebffd8e9128073c4f9"
+  integrity sha512-YjB9LDyUBcWfVVF8mN+t4OziYghys08nb2vpYgW+sqXO4giHRLWpANFmVUXW+H2c1g8fAwPlKYcwDXyqNunibw==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+    regex-escape "^3.4.8"
+
 gatsby-plugin-page-creator@^2.0.12:
   version "2.0.12"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-page-creator/-/gatsby-plugin-page-creator-2.0.12.tgz#00a5103715881e141c81b68b670ad8fb06291b7d"
@@ -4765,7 +4773,7 @@ gatsby-telemetry@^1.0.9:
     stack-utils "1.0.2"
     uuid "3.3.2"
 
-gatsby@^2.0.75:
+gatsby@^2.0.75, gatsby@^2.4.3:
   version "2.4.3"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-2.4.3.tgz#30bc286583baa9e2a6e37aad2986fe02e8a03ffd"
   integrity sha512-PoUSY7dRho+JwTa5igvTMc/EWOIl65WZcWIDq4kHqVDag5qtuAK1PPHieOOeFeNBInwvJQdhAxaCaDE4vfymmw==
@@ -8780,6 +8788,11 @@ regenerator-transform@^0.13.4:
   integrity sha512-T0QMBjK3J0MtxjPmdIMXm72Wvj2Abb0Bd4HADdfijwMdoIsyQZ6fWC7kDFhk2YinBBEMZDL7Y7wh0J1sGx3S4A==
   dependencies:
     private "^0.1.6"
+
+regex-escape@^3.4.8:
+  version "3.4.9"
+  resolved "https://registry.yarnpkg.com/regex-escape/-/regex-escape-3.4.9.tgz#407b413562e2373d56994ff213e693658ea4f8f7"
+  integrity sha512-Cv9rjwyQwVhn3L097ysanWsEElurmxDj6Cc4Ut23z7e6hzRbrNvF3Le7yAciMfuzyb0sZwSr0ZHunMNCIoy2/g==
 
 regex-not@^1.0.0, regex-not@^1.0.2:
   version "1.0.2"
