@@ -3,6 +3,7 @@ import MDXRenderer from "gatsby-mdx/mdx-renderer";
 import { MDXProvider } from "@mdx-js/react";
 import { distanceInWordsToNow } from "date-fns";
 import AutoLinkedHeading from "../Text/Heading";
+import Code from '../Code/Code';
 import "./document.css";
 
 const Document = ({ title, modifiedTime, mdxDetails }) => {
@@ -15,7 +16,8 @@ const Document = ({ title, modifiedTime, mdxDetails }) => {
         h4: props => <AutoLinkedHeading size="h4" {...props} />,
         h5: props => <AutoLinkedHeading size="h5" {...props} />,
         h6: props => <AutoLinkedHeading size="h6" {...props} />,
-        ul: props => <ul {...props} className="markdown-list" />
+        ul: props => <ul {...props} className="markdown-list" />,
+        code: props => <Code {...props} />
       }}
     >
       <div className="document">
